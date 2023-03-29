@@ -1,0 +1,33 @@
+@model List<ProjetoDIO.Models.Tarefa>
+
+@if (!Model.Any())
+{
+    <h2>Nenhuma tarefa encontrada.</h2>
+}
+else
+{
+    <h2>Tarefas encontradas:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tarefa in Model)
+            {
+                <tr>
+                    <td>@tarefa.Id</td>
+                    <td>@tarefa.Titulo</td>
+                    <td>@tarefa.Descricao</td>
+                    <td>@tarefa.Data.ToShortDateString()</td>
+                    <td>@tarefa.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

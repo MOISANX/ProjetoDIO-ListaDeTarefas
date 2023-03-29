@@ -1,0 +1,64 @@
+@model ProjetoDIO.Models.Tarefa;
+
+@{
+
+    ViewData["title"] = "Criar Nova Tarefa";
+}
+
+
+<h1>Nova Tarefa</h1>
+
+<hr/>
+
+<div class="row">
+  
+  <div class="col-md-4" >
+
+     <form asp-action="CriarTarefa">
+
+        <div class="form-group">
+            <label asp-for="Titulo" class="control-label"></label>
+            <input asp-for="Titulo" class="form-control" />
+        </div>
+
+         <div class="form-group">
+            <label asp-for="Data" class="control-label"></label>
+            <input type="date" asp-for="Data" class="form-control" />
+        </div>
+
+         <div class="form-group">
+            <label asp-for="Descricao" class="control-label"></label>
+            <textarea asp-for="Descricao" type="text-area" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+           <label asp-for="Status" class="control-label"></label>
+           <select asp-for="Status" class="form-control">
+            <option>Escolha o estado da tarefa</option>
+            <option value="@StatusEnum.Pendente">Pendente</option>
+            <option value="@StatusEnum.Concluido">Concluido</option>
+
+
+               </select>
+        </div>
+         <br>
+         <br>
+
+    <div>
+
+        <div class="form-group">
+        <input type="submit" value="CriarTarefa" class="btn-primary" />
+    </div>
+        
+    </form>
+
+  </div>
+
+<br>
+    
+  <a asp-action="Index">Retorna A tela Principal</a> 
+
+</div>
+
+
+
